@@ -15,7 +15,8 @@ def set_base_url(context, base_url):
     if base_url.startswith("context"):
         context.base_url = getattr(context, base_url[8:])
     else:
-        context.base_url = base_url.encode('ascii')
+        # context.base_url = base_url.encode('ascii')
+        context.base_url = base_url
 
 
 @step('I add path "{path}" to base URL')
