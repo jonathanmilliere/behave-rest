@@ -207,11 +207,11 @@ def json_object_validation(context, json_path, expected_json_value):
         nose.tools.assert_equal(actual_json_value, converted_value)
 
 
-@step('JSON at path "{json_path}" should contain {expected_count} item(s)')
+@step('JSON at path "{json_path}" should contain {expected_count} items')
 def json_object_validation_count(context, json_path, expected_count):
     data = context.r.json()
     actual_json_value = jpath.get(json_path, data)
-#
+
     nose.tools.assert_equal(len(actual_json_value), int(expected_count))
 
 
