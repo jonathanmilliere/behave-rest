@@ -215,6 +215,14 @@ def json_object_validation_count(context, json_path, expected_count):
     nose.tools.assert_equal(len(actual_json_value), int(expected_count))
 
 
+@step('JSON should contain {expected_count} items')
+def json_base_validation_count(context, expected_count):
+    data = context.r.json()
+    actual_json_value = jpath.get('', data)
+
+    nose.tools.assert_equal(len(actual_json_value), int(expected_count))
+
+
 @step('the response header "{header_name}" should equal "{expected_header_value}"')
 def parameter_validation(context, header_name, expected_header_value):
     nose.tools.assert_equal(context.r.headers[header_name], str(expected_header_value))
